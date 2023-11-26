@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <title>Starbhak Mart</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+        <a class="navbar-brand" href="#">Starbhak Mart</a>
+    </nav>
+
+    <!-- Konten di bawah navbar -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Bagian kiri (Take Away) -->
+            <div class="col-md-4">
+                <div class="bordered-dropdown">
+                    <div>
+                        <button class="btn btn-primary dropdown-toggle btn-extra-large" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Take Away
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Take Away</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bordered-dropdown">
+                  <div>
+                    <button class="btn btn-primary btn-extra-large" type="button">
+                      <img src="assets/image/man.png" alt="Mang Jay's Image" style="margin-right: 7px;"> Annisa Aulia R.
+                  </button>
+                  
+                  </div>
+              </div>
+                <div class="bordered-div" id="invoice">
+                    <!-- Tempat untuk div invoice -->                    
+                </div>
+                <div id="tax">Tax: Rp</div>
+                <div id="totalAmount">Total Amount: Rp</div>
+                
+            </div>
+
+            <!-- Bagian kanan (Itemlist) -->
+            <div class="col-md-8">
+                <nav class="navbar navbar-light bg-light">
+                    <span class="navbar-text mr-auto">
+                        Itemlist
+                    </span>
+                    
+                    
+                        <!-- Container untuk gambar search -->
+                    <div id="searchInputGroupContainer" class="ml-auto" style="display: none;">
+                        <div class="input-group">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="filterItems()">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-auto">
+                        <!-- Logo search (ganti dengan logo yang sesuai) -->
+                        <button type="button" class="btn btn-link" onclick="showSearchInputGroup()">
+                        <img src="assets/image/search.png" alt="Search" width="30" height="30">
+                        </button>
+                        <button type="button" class="btn btn-link">
+                        <img src="assets/image/dots.png" alt="dots" width="30" height="30">
+                        </button>
+                        <button type="button" class="btn btn-link">
+                        <img src="assets/image/sort.png" alt="sort" width="30" height="30">
+                        </button>
+                    </div>
+                <div class="bordered-div row row-cols-1 row-cols-md-2 row-cols-lg-3" id="itemList">
+                    <!-- Tempat untuk div itemlist -->
+                    <!-- Isi dengan elemen/elemen itemlist sesuai kebutuhan -->
+                    <div class="col ml-2 mr-2" style="height: 400px;" >
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/Bakmi Jawa 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Bakmi Jawa</h5>
+                                <p class="card-text">Rp.20000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Bakmi Jawa', 35000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;" >
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/ayamgoreng 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Ayam Goreng</h5>
+                                <p class="card-text">Rp.25000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Ayam Goreng', 45000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/batagor 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Batagor</h5>
+                                <p class="card-text">Rp.15000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Batagor', 40000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/bebekgoreng 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Bebek Goreng</h5>
+                                <p class="card-text">Rp.30000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Bebek Goreng', 30000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/kebab-sosis 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Kebab</h5>
+                                <p class="card-text">Rp.15000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Kebab', 25000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/gurame 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Gurame Asam Manis</h5>
+                                <p class="card-text">Rp.30000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Gurame Asam Manis', 37000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/mie nyemek 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Mie Nyemek</h5>
+                                <p class="card-text">Rp.22000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Mie Nyemek', 22000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/gudeg 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Gudeg</h5>
+                                <p class="card-text">Rp.20000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Gudeg', 20000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/pecellele 1.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Pecel Lele</h5>
+                                <p class="card-text">Rp.15000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Pecel Lele', 15000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/soda gembira.JPG" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Soda Gembira</h5>
+                                <p class="card-text">Rp.10000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Soda Gembira', 18000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/es teh.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Es Teh Manis</h5>
+                                <p class="card-text">Rp.4000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Es Teh Manis', 17000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/kopi.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Kopi Hitam</h5>
+                                <p class="card-text">3000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Kopi Hitam', 27000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/tehtarik.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Teh Tarik</h5>
+                                <p class="card-text">Rp.7000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Teh Tarik', 17000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col ml-2 mr-2" style="height: 400px;">
+                        <div class="card mb-3" style="height: 100%;">
+                            <img src="assets/image/greentea.jpg" class="card-img-top" style="height: 300px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Green Tea</h5>
+                                <p class="card-text">Rp.9000</p>
+                                <button class="btn btn-primary" onclick="addToInvoice('Green Tea', 16000)">Add to Invoice</button>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <button type="button" class="btn btn-primary float-right" id="payBtn" onclick="payment()">
+                    <div style="display: flex; align-items: center;">
+                        <img src="/assets/image/payment.png" alt="save" style="width: 30px; height: 30px; margin-right: 5px;">
+                        Payment<br />(CNTRL + P)
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
